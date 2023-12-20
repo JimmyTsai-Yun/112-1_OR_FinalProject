@@ -21,13 +21,13 @@ if __name__ == "__main__":
     schoolStationList = [{**d, 'bemp': d['bemp'] / len(file_list)} for d in schoolStationList]
     # 儲存臺大站點資訊
     import json
-    with open('schoolStationList.json', 'w', encoding='utf-8') as f:
+    with open('/Users/jasper/Operation Research/Final_Project/schoolStationList.json', 'w', encoding='utf-8') as f:
         json.dump(schoolStationList, f, ensure_ascii=False, indent=4)
     # 計算站點距離
     distance_matrix = compute_distance(schoolStationList)
     # 儲存距離矩陣
     distance_matrix = pd.DataFrame(distance_matrix)
-    distance_matrix.to_csv('distance_matrix.csv', index=False)
+    distance_matrix.to_csv('/Users/jasper/Operation Research/Final_Project/distance_matrix.csv', index=False)
     # TSP optimization
     TSP_no_weight()
     TSP_with_weight()
