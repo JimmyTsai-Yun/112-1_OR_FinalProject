@@ -9,8 +9,8 @@ The final project of Operation Research 112-1 from NTU Department of C&amp;E
 - gurobipy
 ## Get started
 1.  Get data from web
-[Tab]<pre><code>python reptile.py
+  <pre><code>python reptile.py
 </code></pre>
 2.  Data preparation and solve TSP
-[Tab]<pre><code>python main.py
+  <pre><code>python main.py
 </code></pre>
