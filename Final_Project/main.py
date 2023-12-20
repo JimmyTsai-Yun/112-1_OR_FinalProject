@@ -2,6 +2,8 @@ from utils import *
 from visualize import *
 import numpy as np
 import pandas as pd
+from TSP.TSP_no_weight import *
+from TSP.TSP_with_weight import *
     
 if __name__ == "__main__":
     # 設定檔案路徑
@@ -17,18 +19,20 @@ if __name__ == "__main__":
 
     # 取平均車輛數
     schoolStationList = [{**d, 'bemp': d['bemp'] / len(file_list)} for d in schoolStationList]
-
-    # 計算站點距離
-    distance_matrix = compute_distance(schoolStationList)
-
-    # 繪製臺大各站點位置
-    plot_location_of_each_station(schoolStationList, visualize_result_path, route)
-    
-    distance_matrix = pd.DataFrame(distance_matrix)
-    distance_matrix.to_csv('distance_matrix.csv', index=False)
+    # 儲存臺大站點資訊
     import json
     with open('schoolStationList.json', 'w', encoding='utf-8') as f:
         json.dump(schoolStationList, f, ensure_ascii=False, indent=4)
+    # 計算站點距離
+    distance_matrix = compute_distance(schoolStationList)
+    # 儲存距離矩陣
+    distance_matrix = pd.DataFrame(distance_matrix)
+    distance_matrix.to_csv('distance_matrix.csv', index=False)
+    # TSP optimization
+    TSP_no_weight()
+    TSP_with_weight()
+    # 繪製臺大各站點位置
+    plot_location_of_each_station(schoolStationList, visualize_result_path, route)
     pass
 
 '''
