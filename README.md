@@ -8,4 +8,6 @@ The final project of Operation Research 112-1 from NTU Department of C&amp;E
 - pandas
 - geopy
 - gurobipy
-
+## Get started
+***
+  python main.py
